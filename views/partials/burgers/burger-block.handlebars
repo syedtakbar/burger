@@ -1,0 +1,11 @@
+<li class="list-group-item">
+	{{id}}. {{burger_name}}
+	<div class="burger-button">
+		{{#unless devoured}}
+			<button class="button-size devour" data-id="{{id}}" data-devoured="{{devoured}}">
+				Devour It!
+			</button>
+		{{/unless}}
+	</div>
+</li>
+
