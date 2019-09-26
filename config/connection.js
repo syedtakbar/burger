@@ -1,20 +1,33 @@
 // Set up MySQL connection.
 const mysql = require("mysql");
+let  connection;
 
-const localconnection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "test",
-  database: "burgers_db"
-});
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+}
+else if (process.env.CLEARDB_DATABASE_URL) {
+  
+  connection = mysql.createConnection(process.env.CLEARDB_DATABASE_URL)
+  // connection = mysql.createConnection({
+  //   host: "us-cdbr-iron-east-02.cleardb.net",  
+  //   user: "bbb262ca1e5e65",
+  //   password: "b9fc5273",
+  //   database: "heroku_295aff39c7aec8e"
+  // });
 
-const connection = mysql.createConnection({
-  host: "us-cdbr-iron-east-02.cleardb.net",  
-  user: "bbb262ca1e5e65",
-  password: "b9fc5273",
-  database: "heroku_295aff39c7aec8e"
-});
+}
+else {
+
+  connection = mysql.createConnection({
+    host: "localhost",
+    port: 3306,
+    user: "root",
+    password: "test",
+    database: "burgers_db"
+  });
+
+}
+
 
 // Make connection.
 connection.connect(function(err) {
