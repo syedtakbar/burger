@@ -10,8 +10,7 @@ const localconnection = mysql.createConnection({
 });
 
 const connection = mysql.createConnection({
-  host: "us-cdbr-iron-east-02.cleardb.net",
-  port: 3306,
+  host: "us-cdbr-iron-east-02.cleardb.net",  
   user: "bbb262ca1e5e65",
   password: "b9fc5273",
   database: "heroku_295aff39c7aec8e"
